@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/var/www/tsundere.me/bin/facedetect "$1" | while read x y w h; do
+	composite -geometry ${w}x+${x}+${y} /var/www/tsundere.me/data/tsundere_face.png "$1" "$2"
+done
