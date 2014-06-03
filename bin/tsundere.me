@@ -11,5 +11,5 @@ if [ $status -ne 0 ]; then
     exit
 fi
 /var/www/tsundere.me/bin/tsundere $tmp $tmp
-mv $tmp /var/www/tsundere.me/static/$(basename $tmp).jpg
-echo "/static/$(basename $tmp).jpg"
+/var/www/tsundere.me/bin/mediacrush $tmp
+rm $tmp

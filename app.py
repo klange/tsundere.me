@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 from flask import redirect
 import subprocess
+import traceback
 
 app = Flask(__name__)
 
@@ -16,10 +17,9 @@ def index():
             tmp_file = subprocess.check_output([SITE_URL + 'bin/tsundere.me', request.query_string]).strip()
             if tmp_file == "no faces":
                 return app.send_static_file("noface.htm")
-            if not tmp_file.startswith("/static"):
-                return app.send_static_file("error.htm")
-            return redirect(tmp_file)
+            return redirect(tmp_file, code=302)
         except Exception as e:
+            traceback.print_exc()
             return app.send_static_file("error.htm")
     else:
         return app.send_static_file("index.htm")
