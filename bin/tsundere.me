@@ -5,8 +5,13 @@ tmp=`tempfile`
 curl -s "$1" > $tmp
 /var/www/tsundere.me/bin/facedetect -q $tmp 2>/dev/null
 status=$?
-if [ $status -ne 0 ]; then
+if [ $status -eq 2 ]; then
     echo "no faces"
+    rm $tmp
+    exit
+fi
+if [ $status -eq 1 ]; then
+    echo "bad image"
     rm $tmp
     exit
 fi
