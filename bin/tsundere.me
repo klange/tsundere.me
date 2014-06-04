@@ -1,6 +1,7 @@
 #!/bin/bash
 
-tmp=`tempfile`
+tmpf=`tempfile`
+tmp=${tmpf}.jpg
 
 curl -s "$1" > $tmp
 /var/www/tsundere.me/bin/facedetect -q $tmp 2>/dev/null
