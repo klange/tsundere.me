@@ -1,0 +1,5 @@
+#!/bin/bash
+
+key=`cat /var/www/tsundere.me/imgurkey`
+
+curl -s -H "Authorization: Client-ID $key" -X POST -F image=@"$1" https://api.imgur.com/3/image

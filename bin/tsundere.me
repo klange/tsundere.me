@@ -17,5 +17,5 @@ if [ $status -eq 1 ]; then
     exit
 fi
 /var/www/tsundere.me/bin/tsundere $tmp $tmp
-/var/www/tsundere.me/bin/mediacrush $tmp
+/var/www/tsundere.me/bin/imgur $tmp | /var/www/tsundere.me/bin/imgur.py
 rm $tmp
