@@ -5,4 +5,4 @@ import json
 f = raw_input()
 f = json.loads(f)
 
-print f['data']['image']
+print f['data']['link']
